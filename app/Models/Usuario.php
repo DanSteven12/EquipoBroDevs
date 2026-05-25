@@ -23,6 +23,7 @@ class Usuario extends Authenticatable implements JWTSubject
         'mfa_secret',
         'intentos_fallidos',
         'bloqueado_hasta',
+        'email_verificado_at',
     ];
 
     protected $hidden = [
