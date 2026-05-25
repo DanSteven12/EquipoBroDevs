@@ -91,11 +91,11 @@
         .validacion-lista {
             list-style: none;
             padding: 0;
-            margin: 0.75rem 0 0 0;
-            font-size: 0.78rem;
+            margin-top: 0.8rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 0.5rem;
+            font-size: 0.80rem;
         }
 
         .validacion-item {
@@ -103,8 +103,8 @@
             align-items: center;
             gap: 6px;
             color: var(--text-muted);
-            transition: 0.3s;
             font-weight: 500;
+            transition: 0.3s;
         }
 
         .validacion-item.cumplido {
@@ -113,6 +113,10 @@
 
         .validacion-item.no-cumplido {
             color: var(--danger-red);
+        }
+
+        .icono {
+            font-size: 14px;
         }
 
         button {
@@ -137,12 +141,6 @@
             box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
         }
 
-        button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-            opacity: 0.7;
-        }
-
         .mensaje-error {
             background: rgba(239, 68, 68, 0.1);
             color: var(--danger-red);
@@ -158,20 +156,16 @@
             text-align: center;
             margin-top: 1.5rem;
             font-size: 0.875rem;
-            color: var(--text-main);
-            font-weight: 500;
         }
 
         .enlace-login a {
             color: var(--primary-dark);
             text-decoration: none;
             font-weight: 700;
-            transition: color 0.3s;
         }
 
         .enlace-login a:hover {
             color: var(--hover-color);
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -187,55 +181,77 @@
             <!-- NOMBRE -->
             <div class="campo">
                 <label for="nombre">Nombre Completo</label>
+
                 <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
             </div>
 
             <!-- EMAIL -->
             <div class="campo">
-                <label for="email">Correo Electrónico</label>
+
+                <label for="email">
+                    Correo Electrónico
+                </label>
 
                 <input type="email" id="email" name="email" placeholder="usuario@dominio.com" required>
 
                 <ul class="validacion-lista" id="email-rules">
+
                     <li class="validacion-item" data-rule="format">
-                        📧 Formato válido
+
+                        <span class="icono">❌</span>
+                        Formato válido
                     </li>
+
                 </ul>
+
             </div>
 
             <!-- PASSWORD -->
             <div class="campo">
 
-                <label for="password">Contraseña</label>
+                <label for="password">
+                    Contraseña
+                </label>
 
                 <input type="password" id="password" name="password" placeholder="••••••••••••" required>
 
                 <ul class="validacion-lista" id="password-rules">
 
                     <li class="validacion-item" data-rule="length">
-                        🔒 Mín. 12 caracteres
+
+                        <span class="icono">❌</span>
+                        Mín. 12 caracteres
                     </li>
 
                     <li class="validacion-item" data-rule="upper">
-                        🔠 Mayúscula
+
+                        <span class="icono">❌</span>
+                        Mayúscula
                     </li>
 
                     <li class="validacion-item" data-rule="lower">
-                        🔡 Minúscula
+
+                        <span class="icono">❌</span>
+                        Minúscula
                     </li>
 
                     <li class="validacion-item" data-rule="number">
-                        🔢 Número
+
+                        <span class="icono">❌</span>
+                        Número
                     </li>
 
                     <li class="validacion-item" data-rule="special">
-                        ✨ Especial
+
+                        <span class="icono">❌</span>
+                        Caracter especial
                     </li>
 
                 </ul>
+
             </div>
 
-            <!-- CONFIRMAR -->
+            <!-- CONFIRMAR PASSWORD -->
             <div class="campo">
 
                 <label for="password_confirmation">
@@ -246,16 +262,22 @@
                     placeholder="••••••••••••" required>
 
                 <ul class="validacion-lista" id="confirm-rules">
+
                     <li class="validacion-item" data-rule="match">
-                        ✅ Coinciden
+
+                        <span class="icono">❌</span>
+                        Coinciden
                     </li>
+
                 </ul>
+
             </div>
 
-            <div id="mensaje-error" class="mensaje-error" style="display:none; margin-bottom:1rem;">
+            <div id="mensaje-error" class="mensaje-error" style="display:none;">
             </div>
 
             <button type="submit" id="boton-registro">
+
                 Registrarse
             </button>
 
@@ -272,17 +294,23 @@
 
     <script>
 
-        const form = document.getElementById('formulario-registro');
+        const form =
+            document.getElementById('formulario-registro');
 
-        const emailInput = document.getElementById('email');
+        const emailInput =
+            document.getElementById('email');
 
-        const passwordInput = document.getElementById('password');
+        const passwordInput =
+            document.getElementById('password');
 
-        const confirmInput = document.getElementById('password_confirmation');
+        const confirmInput =
+            document.getElementById('password_confirmation');
 
+        // REGLAS
         const rules = {
 
             email: {
+
                 format: (val) =>
                     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
             },
@@ -306,12 +334,14 @@
             },
 
             confirm: {
+
                 match: (val) =>
                     val === passwordInput.value &&
                     val.length > 0
             }
         };
 
+        // ACTUALIZAR UI
         function updateUI(field, ruleName, isValid) {
 
             const item =
@@ -321,43 +351,71 @@
 
             if (item) {
 
-                item.classList.toggle(
-                    'cumplido',
-                    isValid
-                );
+                const icono =
+                    item.querySelector('.icono');
 
-                item.classList.toggle(
-                    'no-cumplido',
-                    !isValid &&
-                    document.getElementById(field).value.length > 0
-                );
+                if (isValid) {
+
+                    item.classList.add('cumplido');
+
+                    item.classList.remove('no-cumplido');
+
+                    icono.textContent = '✅';
+
+                } else {
+
+                    item.classList.remove('cumplido');
+
+                    item.classList.add('no-cumplido');
+
+                    icono.textContent = '❌';
+                }
             }
         }
 
+        // VALIDACIONES
         function checkValidity() {
 
             // EMAIL
             const emailValid =
                 rules.email.format(emailInput.value);
 
-            updateUI('email', 'format', emailValid);
+            updateUI(
+                'email',
+                'format',
+                emailValid
+            );
 
             // PASSWORD
-            Object.keys(rules.password).forEach(rule => {
+            Object.keys(rules.password)
+                .forEach(rule => {
 
-                const isValid =
-                    rules.password[rule](passwordInput.value);
+                    const isValid =
+                        rules.password[rule](
+                            passwordInput.value
+                        );
 
-                updateUI('password', rule, isValid);
-            });
+                    updateUI(
+                        'password',
+                        rule,
+                        isValid
+                    );
+                });
 
-            // CONFIRM
+            // CONFIRM PASSWORD
             const confirmValid =
-                rules.confirm.match(confirmInput.value);
+                rules.confirm.match(
+                    confirmInput.value
+                );
 
-            updateUI('confirm', 'match', confirmValid);
+            updateUI(
+                'confirm',
+                'match',
+                confirmValid
+            );
         }
 
+        // EVENTOS
         emailInput.addEventListener(
             'input',
             checkValidity
@@ -384,32 +442,37 @@
             const errorDiv =
                 document.getElementById('mensaje-error');
 
-            errorDiv.style.display = 'none';
-
             boton.disabled = true;
 
             boton.innerText = 'Registrando...';
 
-            const formData = new FormData(form);
+            errorDiv.style.display = 'none';
+
+            const formData =
+                new FormData(form);
 
             const data =
-                Object.fromEntries(formData.entries());
+                Object.fromEntries(
+                    formData.entries()
+                );
 
             try {
 
-                const response = await fetch(
-                    '/api/auth/registro',
-                    {
+                const response =
+                    await fetch('/api/auth/registro', {
+
                         method: 'POST',
+
                         headers: {
                             'Content-Type': 'application/json',
                             'Accept': 'application/json'
                         },
-                        body: JSON.stringify(data)
-                    }
-                );
 
-                const result = await response.json();
+                        body: JSON.stringify(data)
+                    });
+
+                const result =
+                    await response.json();
 
                 if (response.ok) {
 
@@ -431,19 +494,22 @@
                                 .join('<br>');
                     }
 
-                    errorDiv.innerHTML = mensaje;
+                    errorDiv.innerHTML =
+                        mensaje;
 
-                    errorDiv.style.display = 'block';
+                    errorDiv.style.display =
+                        'block';
                 }
 
             } catch (error) {
 
                 console.error(error);
 
-                errorDiv.innerText =
+                errorDiv.innerHTML =
                     'Error de conexión con el servidor.';
 
-                errorDiv.style.display = 'block';
+                errorDiv.style.display =
+                    'block';
 
             } finally {
 
