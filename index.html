@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gestiona y descubre eventos deportivos y recreativos en tu comunidad. Fútbol, baloncesto, ciclismo y más.">
+    <title>SportVibe - Gestión de Eventos Deportivos y Recreativos</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="/index.html" class="logo">
+                <i class="fa-solid fa-bolt"></i> Sport<span>Vibe</span>
+            </a>
+            
+            <i class="fa-solid fa-bars menu-toggle" id="menu-toggle"></i>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <!-- Servido dinámicamente por script.js -->
+            </ul>
+            
+            <div class="auth-buttons" id="auth-buttons">
+                <!-- Servido dinámicamente por script.js -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="main-content">
+            <div class="hero-badge">
+                <i class="fa-solid fa-fire"></i> Tu Comunidad Activa
+            </div>
+            <h1>Encuentra y Organiza los mejores<br><span>Eventos Deportivos</span></h1>
+            <p>Únete a las actividades recreativas y torneos de tu zona. Crea tus propios grupos de juego, gestiona participantes y lleva tu pasión por el deporte al siguiente nivel.</p>
+            <div class="hero-actions">
+                <a href="/eventos.html" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Explorar Eventos</a>
+                <a href="/contacto.html" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Contactar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Categories Section -->
+        <section class="mb-4">
+            <div class="section-header">
+                <div>
+                    <h2><i class="fa-solid fa-trophy"></i> Categorías Deportivas</h2>
+                    <p class="text-secondary mt-1">Explora las actividades recreativas por disciplina</p>
+                </div>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card" onclick="window.location.href='/eventos.html?categoria=Fútbol'">
+                    <i class="fa-solid fa-futbol category-icon"></i>
+                    <h3>Fútbol</h3>
+                    <p>Partidos amistosos, torneos amateur y ligas locales.</p>
+                </div>
+                <div class="category-card" onclick="window.location.href='/eventos.html?categoria=Baloncesto'">
+                    <i class="fa-solid fa-basketball category-icon"></i>
+                    <h3>Baloncesto</h3>
+                    <p>Reta a otros jugadores y únete a tercias recreativas.</p>
+                </div>
+                <div class="category-card" onclick="window.location.href='/eventos.html?categoria=Ciclismo'">
+                    <i class="fa-solid fa-bicycle category-icon"></i>
+                    <h3>Ciclismo</h3>
+                    <p>Rutas de montaña, paseos urbanos e itinerarios en grupo.</p>
+                </div>
+                <div class="category-card" onclick="window.location.href='/eventos.html?categoria=Senderismo'">
+                    <i class="fa-solid fa-mountain-sun category-icon"></i>
+                    <h3>Senderismo</h3>
+                    <p>Caminatas guiadas y excursiones de naturaleza al aire libre.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Events Section -->
+        <section class="mb-4">
+            <div class="section-header">
+                <div>
+                    <h2><i class="fa-solid fa-calendar-check"></i> Próximos Eventos</h2>
+                    <p class="text-secondary mt-1">Únete a las actividades programadas más cercanas</p>
+                </div>
+                <a href="/eventos.html" class="event-action-btn">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- Grid container for live loaded events cards -->
+            <div class="events-grid" id="upcoming-events-grid">
+                <!-- Se carga dinámicamente mediante script.js -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <i class="fa-solid fa-bolt" style="color: var(--accent-cyan)"></i> Sport<span>Vibe</span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/eventos.html">Eventos</a></li>
+                <li><a href="/contacto.html">Contacto</a></li>
+            </ul>
+            <div class="footer-socials">
+                <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="footer-copy">
+                &copy; 2026 SportVibe. Todos los derechos reservados. Diseñado para la gestión deportiva recreativa.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Event details Modal (Reusable across pages) -->
+    <div class="modal-overlay" id="modal-event-detail">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="detail-titulo">Detalles del Evento</h3>
+                <i class="fa-solid fa-xmark modal-close"></i>
+            </div>
+            <div class="modal-body">
+                <div style="height: 220px; overflow:hidden; border-radius: var(--radius-md); margin-bottom: 1.5rem; background:#1e293b;">
+                    <img id="detail-banner" src="" alt="Banner Evento" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <h4 style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;" id="detail-categoria">Categoría</h4>
+                
+                <div class="detail-meta-grid">
+                    <div class="detail-meta-item">
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <div>
+                            <p style="font-size: 0.75rem; color: var(--text-muted);">Fecha y Hora</p>
+                            <span id="detail-fecha">Viernes, 10 de Mayo</span>
+                        </div>
+                    </div>
+                    <div class="detail-meta-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <p style="font-size: 0.75rem; color: var(--text-muted);">Lugar / Ubicación</p>
+                            <span id="detail-lugar">Complejo Deportivo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h4 class="mb-2" style="font-size: 1.1rem; color: #fff;">Descripción de la Actividad</h4>
+                    <p class="detail-desc" id="detail-descripcion">Cargando descripción...</p>
+                </div>
+
+                <div style="border-top: 1px solid var(--border-color); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    <div class="organizer-info">
+                        <div class="avatar-mini" id="detail-avatar-letter">O</div>
+                        <div>
+                            <p style="font-size:0.7rem; color: var(--text-muted)">Organizado por</p>
+                            <span id="detail-organizador" style="font-weight:600; font-size:0.85rem;">Nombre</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Edit/Delete buttons if user is owner -->
+                    <div id="detail-owner-actions" style="display:none; gap: 0.5rem;">
+                        <!-- Inyectado dinámicamente -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline btn-modal-close">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script JS -->
+    <script src="/js/script.js"></script>
+</body>
+</html>

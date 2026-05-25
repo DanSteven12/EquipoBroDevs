@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar - SportVibe</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="/index.html" class="logo">
+                <i class="fa-solid fa-bolt"></i> Sport<span>Vibe</span>
+            </a>
+            
+            <i class="fa-solid fa-bars menu-toggle" id="menu-toggle"></i>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <!-- Servido dinámicamente -->
+            </ul>
+            
+            <div class="auth-buttons" id="auth-buttons">
+                <!-- Servido dinámicamente -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Form -->
+    <main class="main-content">
+        <div class="form-wrapper">
+            <div class="form-card">
+                <h2>Bienvenido de Nuevo</h2>
+                <p class="subtitle">Ingresa a tu cuenta para gestionar tus eventos deportivos</p>
+                
+                <form id="form-login">
+                    <!-- Email / Username field -->
+                    <div class="form-group">
+                        <label for="login">Correo Electrónico o Nombre de Usuario</label>
+                        <div class="input-icon-wrapper">
+                            <input type="text" id="login" class="form-control" placeholder="nombre@correo.com o username" required autocomplete="username">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Password field -->
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <div class="input-icon-wrapper">
+                            <input type="password" id="password" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                    </div>
+
+                    <!-- Remember me options -->
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="remember">
+                            <span>Recordarme</span>
+                        </label>
+                    </div>
+
+                    <!-- Action button -->
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.8rem; font-size: 1rem;">
+                        <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión
+                    </button>
+                </form>
+
+                <p class="form-redirect">
+                    ¿No tienes una cuenta aún? <a href="/registro.html">Regístrate gratis</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <i class="fa-solid fa-bolt" style="color: var(--accent-cyan)"></i> Sport<span>Vibe</span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/eventos.html">Eventos</a></li>
+                <li><a href="/contacto.html">Contacto</a></li>
+            </ul>
+            <div class="footer-copy">
+                &copy; 2026 SportVibe. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script JS -->
+    <script src="/js/script.js"></script>
+</body>
+</html>

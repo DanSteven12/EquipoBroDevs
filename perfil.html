@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - SportVibe</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="/index.html" class="logo">
+                <i class="fa-solid fa-bolt"></i> Sport<span>Vibe</span>
+            </a>
+            
+            <i class="fa-solid fa-bars menu-toggle" id="menu-toggle"></i>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <!-- Servido dinámicamente -->
+            </ul>
+            
+            <div class="auth-buttons" id="auth-buttons">
+                <!-- Servido dinámicamente -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="section-header">
+            <div>
+                <h2><i class="fa-solid fa-user-gear"></i> Panel de Usuario</h2>
+                <p class="text-secondary mt-1">Gestiona tus datos personales y tus eventos deportivos</p>
+            </div>
+        </div>
+
+        <div class="profile-grid">
+            <!-- Left: Profile Details Card -->
+            <div class="profile-card">
+                <div class="avatar-large" id="avatar-letter">U</div>
+                <h3 id="profile-name">Cargando Nombre...</h3>
+                <p class="username" id="profile-username">@username</p>
+                <p class="email" id="profile-email">correo@ejemplo.com</p>
+                <span class="profile-badge" id="profile-role">Estudiante</span>
+            </div>
+
+            <!-- Right: Action Tabs & Form & Events -->
+            <div class="profile-main">
+                <!-- Tab 1: Edit Profile details -->
+                <div class="form-card" style="width: 100%; margin: 0;">
+                    <h3 class="mb-3" style="font-size:1.4rem; color: #fff;"><i class="fa-regular fa-pen-to-square"></i> Actualizar Perfil</h3>
+                    <p class="text-secondary mb-4" style="font-size:0.9rem;">Modifica tu nombre, nombre de usuario o actualiza tu contraseña.</p>
+                    
+                    <form id="form-perfil">
+                        <!-- Name Input -->
+                        <div class="form-group">
+                            <label for="edit-nombre">Nombre Completo</label>
+                            <div class="input-icon-wrapper">
+                                <input type="text" id="edit-nombre" class="form-control" required autocomplete="name">
+                                <i class="fa-solid fa-id-card"></i>
+                            </div>
+                        </div>
+
+                        <!-- Username Input -->
+                        <div class="form-group">
+                            <label for="edit-username">Nombre de Usuario</label>
+                            <div class="input-icon-wrapper">
+                                <input type="text" id="edit-username" class="form-control" required autocomplete="username">
+                                <i class="fa-solid fa-circle-user"></i>
+                            </div>
+                        </div>
+
+                        <!-- Password Change Input -->
+                        <div class="form-group">
+                            <label for="edit-password">Nueva Contraseña (Dejar vacío para mantener actual)</label>
+                            <div class="input-icon-wrapper">
+                                <input type="password" id="edit-password" class="form-control" placeholder="••••••••" autocomplete="new-password">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa-solid fa-floppy-disk"></i> Guardar Cambios
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Tab 2: User's Organized Events -->
+                <div>
+                    <div class="section-header" style="margin-bottom: 1.5rem;">
+                        <h3><i class="fa-solid fa-calendar-days" style="color: var(--accent-cyan)"></i> Mis Eventos Creados</h3>
+                    </div>
+                    
+                    <div id="user-events-list">
+                        <!-- Inyectado dinámicamente por JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <i class="fa-solid fa-bolt" style="color: var(--accent-cyan)"></i> Sport<span>Vibe</span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/eventos.html">Eventos</a></li>
+                <li><a href="/contacto.html">Contacto</a></li>
+            </ul>
+            <div class="footer-copy">
+                &copy; 2026 SportVibe. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Reusable Event details Modal -->
+    <div class="modal-overlay" id="modal-event-detail">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="detail-titulo">Detalles del Evento</h3>
+                <i class="fa-solid fa-xmark modal-close"></i>
+            </div>
+            <div class="modal-body">
+                <div style="height: 220px; overflow:hidden; border-radius: var(--radius-md); margin-bottom: 1.5rem; background:#1e293b;">
+                    <img id="detail-banner" src="" alt="Banner Evento" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <h4 style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;" id="detail-categoria">Categoría</h4>
+                
+                <div class="detail-meta-grid">
+                    <div class="detail-meta-item">
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <div>
+                            <p style="font-size: 0.75rem; color: var(--text-muted);">Fecha y Hora</p>
+                            <span id="detail-fecha">Viernes, 10 de Mayo</span>
+                        </div>
+                    </div>
+                    <div class="detail-meta-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <p style="font-size: 0.75rem; color: var(--text-muted);">Lugar / Ubicación</p>
+                            <span id="detail-lugar">Complejo Deportivo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h4 class="mb-2" style="font-size: 1.1rem; color: #fff;">Descripción de la Actividad</h4>
+                    <p class="detail-desc" id="detail-descripcion">Cargando descripción...</p>
+                </div>
+
+                <div style="border-top: 1px solid var(--border-color); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    <div class="organizer-info">
+                        <div class="avatar-mini" id="detail-avatar-letter">O</div>
+                        <div>
+                            <p style="font-size:0.7rem; color: var(--text-muted)">Organizado por</p>
+                            <span id="detail-organizador" style="font-weight:600; font-size:0.85rem;">Nombre</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Edit/Delete buttons if user is owner -->
+                    <div id="detail-owner-actions" style="display:none; gap: 0.5rem;">
+                        <!-- Inyectado dinámicamente -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline btn-modal-close">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reusable Edit Event Modal -->
+    <div class="modal-overlay" id="modal-edit-event">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Editar Evento Deportivo</h3>
+                <i class="fa-solid fa-xmark modal-close"></i>
+            </div>
+            <form id="form-edit-evento">
+                <input type="hidden" id="edit-id">
+                
+                <div class="modal-body">
+                    <!-- Title -->
+                    <div class="form-group">
+                        <label for="edit-titulo">Título del Evento deportivo *</label>
+                        <input type="text" id="edit-titulo" class="form-control" style="padding-left:1.2rem;" required>
+                    </div>
+
+                    <!-- Category & Date row -->
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="edit-categoria">Categoría Deportiva *</label>
+                            <div class="filter-group">
+                                <select id="edit-categoria" required>
+                                    <option value="Fútbol">Fútbol</option>
+                                    <option value="Baloncesto">Baloncesto</option>
+                                    <option value="Ciclismo">Ciclismo</option>
+                                    <option value="Senderismo">Senderismo</option>
+                                    <option value="Atletismo">Atletismo</option>
+                                    <option value="Recreativo">Otro / Recreativo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-fecha">Fecha y Hora *</label>
+                            <input type="datetime-local" id="edit-fecha" class="form-control" style="padding-left:1.2rem;" required>
+                        </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="form-group">
+                        <label for="edit-lugar">Lugar / Ubicación *</label>
+                        <input type="text" id="edit-lugar" class="form-control" style="padding-left:1.2rem;" required>
+                    </div>
+
+                    <!-- Image URL -->
+                    <div class="form-group">
+                        <label for="edit-imagen">URL de la Imagen (Opcional)</label>
+                        <input type="url" id="edit-imagen" class="form-control" placeholder="https://ejemplo.com/imagen.jpg" style="padding-left:1.2rem;">
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label for="edit-descripcion">Descripción detallada *</label>
+                        <textarea id="edit-descripcion" class="form-control" rows="4" style="padding-left:1.2rem; resize:vertical;" required placeholder="Describe las reglas, requerimientos o detalles de la actividad..."></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline btn-modal-close">Cancelar</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script JS -->
+    <script src="/js/script.js"></script>
+</body>
+</html>

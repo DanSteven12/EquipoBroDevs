@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - SportVibe</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="/index.html" class="logo">
+                <i class="fa-solid fa-bolt"></i> Sport<span>Vibe</span>
+            </a>
+            
+            <i class="fa-solid fa-bars menu-toggle" id="menu-toggle"></i>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <!-- Servido dinámicamente -->
+            </ul>
+            
+            <div class="auth-buttons" id="auth-buttons">
+                <!-- Servido dinámicamente -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="section-header">
+            <div>
+                <h2><i class="fa-solid fa-paper-plane"></i> Contacto</h2>
+                <p class="text-secondary mt-1">¿Tienes dudas o sugerencias? Escríbenos y nos pondremos en contacto contigo</p>
+            </div>
+        </div>
+
+        <div class="contact-grid">
+            <!-- Left: Contact info cards -->
+            <div class="contact-info-list">
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="contact-info-details">
+                        <h4>Correo de Soporte</h4>
+                        <p>contacto@sportvibe.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div class="contact-info-details">
+                        <h4>Teléfono de Atención</h4>
+                        <p>+34 900 123 456</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div class="contact-info-details">
+                        <h4>Sede Principal</h4>
+                        <p>Avenida del Deporte Recreativo, 120, Madrid, España</p>
+                    </div>
+                </div>
+
+                <!-- Premium Map Placeholder -->
+                <div class="map-placeholder">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <p style="font-weight: 600; color: #fff;">Localización SportVibe</p>
+                    <p style="font-size: 0.75rem;">Avenida del Deporte Recreativo, 120</p>
+                </div>
+            </div>
+
+            <!-- Right: Contact Form -->
+            <div class="form-card" style="width:100%; margin:0;">
+                <h3 class="mb-3" style="font-size:1.4rem; color: #fff;"><i class="fa-solid fa-envelope-open-text"></i> Envíanos un Mensaje</h3>
+                <p class="text-secondary mb-4" style="font-size:0.9rem;">Completa el formulario y responderemos a tu consulta a la brevedad.</p>
+                
+                <form id="form-contacto">
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label for="contacto-nombre">Nombre Completo *</label>
+                        <div class="input-icon-wrapper">
+                            <input type="text" id="contacto-nombre" class="form-control" placeholder="Ej. Ana García" required autocomplete="name">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="contacto-email">Correo Electrónico *</label>
+                        <div class="input-icon-wrapper">
+                            <input type="email" id="contacto-email" class="form-control" placeholder="ana@correo.com" required autocomplete="email">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                    </div>
+
+                    <!-- Subject -->
+                    <div class="form-group">
+                        <label for="contacto-asunto">Asunto de la consulta *</label>
+                        <div class="input-icon-wrapper">
+                            <input type="text" id="contacto-asunto" class="form-control" placeholder="Ej. Sugerencia sobre categorías" required>
+                            <i class="fa-solid fa-circle-info"></i>
+                        </div>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="form-group" style="margin-bottom: 2rem;">
+                        <label for="contacto-mensaje">Mensaje o Comentario *</label>
+                        <div class="input-icon-wrapper">
+                            <textarea id="contacto-mensaje" class="form-control" rows="5" style="padding-left: 3rem; resize: vertical;" placeholder="Escribe aquí tu consulta detalladamente..." required></textarea>
+                            <i class="fa-solid fa-comment-dots" style="top: 1.25rem;"></i>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.8rem;">
+                        <i class="fa-solid fa-paper-plane"></i> Enviar Mensaje
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <i class="fa-solid fa-bolt" style="color: var(--accent-cyan)"></i> Sport<span>Vibe</span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/eventos.html">Eventos</a></li>
+                <li><a href="/contacto.html">Contacto</a></li>
+            </ul>
+            <div class="footer-copy">
+                &copy; 2026 SportVibe. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script JS -->
+    <script src="/js/script.js"></script>
+</body>
+</html>
