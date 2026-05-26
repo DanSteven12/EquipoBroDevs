@@ -62,22 +62,23 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.6rem; /* Ajustado ligeramente para un look más elegante */
         }
 
+        /* Colores ejecutivos/formales refinados */
         .icon-users {
-            background: #fff8e1;
-            color: #ffa000;
+            background: #eff6ff;
+            color: #2563eb;
         }
 
         .icon-teachers {
-            background: #e3f2fd;
-            color: #1976d2;
+            background: #f0fdf4;
+            color: #16a34a;
         }
 
         .icon-courses {
-            background: #f3e5f5;
-            color: #7b1fa2;
+            background: #faf5ff;
+            color: #7c3aed;
         }
 
         .stat-info h3 {
@@ -108,21 +109,29 @@
 
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-icon icon-users"><i class="fas fa-user-graduate"></i></div>
+                <div class="stat-icon icon-users">
+                    <i class="fa-solid fa-users-rectangle"></i>
+                </div>
                 <div class="stat-info">
                     <h3>Estudiantes</h3>
                     <p>N/A</p>
                 </div>
             </div>
+
             <div class="stat-card">
-                <div class="stat-icon icon-teachers"><i class="fas fa-chalkboard-teacher"></i></div>
+                <div class="stat-icon icon-teachers">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
                 <div class="stat-info">
                     <h3>Docentes</h3>
                     <p>N/A</p>
                 </div>
             </div>
+
             <div class="stat-card">
-                <div class="stat-icon icon-courses"><i class="fas fa-book"></i></div>
+                <div class="stat-icon icon-courses">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
                 <div class="stat-info">
                     <h3>Cursos Activos</h3>
                     <p>0</p>
