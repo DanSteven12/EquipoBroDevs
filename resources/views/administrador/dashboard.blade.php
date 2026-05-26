@@ -33,7 +33,8 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            /* Se ajustó el grid para soportar 4 columnas de forma simétrica */
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
@@ -48,6 +49,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             transition: 0.3s;
             border: 1px solid #edf2f7;
+            text-decoration: none; /* Evita subrayados si se usa como enlace */
         }
 
         .stat-card:hover {
@@ -62,10 +64,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem; /* Ajustado ligeramente para un look más elegante */
+            font-size: 1.6rem;
+            flex-shrink: 0;
         }
 
-        /* Colores ejecutivos/formales refinados */
+        /* Colores ejecutivos refinados */
         .icon-users {
             background: #eff6ff;
             color: #2563eb;
@@ -79,6 +82,11 @@
         .icon-courses {
             background: #faf5ff;
             color: #7c3aed;
+        }
+
+        .icon-admin-users {
+            background: #fff7ed;
+            color: #ea580c;
         }
 
         .stat-info h3 {
@@ -96,6 +104,20 @@
             font-weight: 800;
             color: var(--primary-dark);
         }
+
+        .stat-info .action-text {
+            font-size: 0.85rem;
+            color: #718096;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-top: 0.25rem;
+        }
+
+        .stat-card:hover .action-text {
+            color: var(--primary-light);
+        }
     </style>
 @endsection
 
@@ -108,9 +130,10 @@
         </div>
 
         <div class="stats-grid">
+            <!-- Tarjeta Estudiantes -->
             <div class="stat-card">
                 <div class="stat-icon icon-users">
-                    <i class="fa-solid fa-users-rectangle"></i>
+                    <i class="fa-solid fa-address-book"></i>
                 </div>
                 <div class="stat-info">
                     <h3>Estudiantes</h3>
@@ -118,9 +141,10 @@
                 </div>
             </div>
 
+            <!-- Tarjeta Docentes -->
             <div class="stat-card">
                 <div class="stat-icon icon-teachers">
-                    <i class="fa-solid fa-user-tie"></i>
+                    <i class="fa-solid fa-id-card-clip"></i>
                 </div>
                 <div class="stat-info">
                     <h3>Docentes</h3>
@@ -128,15 +152,29 @@
                 </div>
             </div>
 
+            <!-- Tarjeta Cursos Activos -->
             <div class="stat-card">
                 <div class="stat-icon icon-courses">
-                    <i class="fa-solid fa-graduation-cap"></i>
+                    <i class="fa-solid fa-book-bookmark"></i>
                 </div>
                 <div class="stat-info">
                     <h3>Cursos Activos</h3>
                     <p>0</p>
                 </div>
             </div>
+
+            <!-- NUEVA TARJETA: Acceso Directo a Gestión de Usuarios -->
+            <a href="{{ route('admin.usuarios') }}" class="stat-card">
+                <div class="stat-icon icon-admin-users">
+                    <i class="fa-solid fa-users-gear"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Administrar</h3>
+                    <span class="action-text">
+                        Gestionar Usuarios <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                    </span>
+                </div>
+            </a>
         </div>
     </div>
 @endsection
