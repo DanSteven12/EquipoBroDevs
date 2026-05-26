@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gestiona y descubre eventos deportivos y recreativos en tu comunidad. Fútbol, baloncesto, ciclismo y más.">
-    <title>SportVibe - Gestión de Eventos Deportivos y Recreativos</title>
+    <meta name="description"
+        content="Gestiona y descubre eventos deportivos y recreativos en tu comunidad. Fútbol, baloncesto, ciclismo y más.">
+    <title>SportVibe - Gestión de Eventos Deportivos UTS</title>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom Style CSS -->
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
     <!-- Header & Navigation -->
@@ -18,13 +21,13 @@
             <a href="/index.html" class="logo">
                 <i class="fa-solid fa-bolt"></i> Sport<span>Vibe</span>
             </a>
-            
+
             <i class="fa-solid fa-bars menu-toggle" id="menu-toggle"></i>
-            
+
             <ul class="nav-menu" id="nav-menu">
                 <!-- Servido dinámicamente por script.js -->
             </ul>
-            
+
             <div class="auth-buttons" id="auth-buttons">
                 <!-- Servido dinámicamente por script.js -->
             </div>
@@ -38,9 +41,11 @@
                 <i class="fa-solid fa-fire"></i> Tu Comunidad Activa
             </div>
             <h1>Encuentra y Organiza los mejores<br><span>Eventos Deportivos</span></h1>
-            <p>Únete a las actividades recreativas y torneos de tu zona. Crea tus propios grupos de juego, gestiona participantes y lleva tu pasión por el deporte al siguiente nivel.</p>
+            <p>Únete a las actividades recreativas y torneos de tu zona. Crea tus propios grupos de juego, gestiona
+                participantes y lleva tu pasión por el deporte al siguiente nivel.</p>
             <div class="hero-actions">
-                <a href="/eventos.html" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Explorar Eventos</a>
+                <a href="/eventos.html" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Explorar
+                    Eventos</a>
                 <a href="/contacto.html" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Contactar</a>
             </div>
         </div>
@@ -48,7 +53,7 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        
+
         <!-- Categories Section -->
         <section class="mb-4">
             <div class="section-header">
@@ -57,7 +62,7 @@
                     <p class="text-secondary mt-1">Explora las actividades recreativas por disciplina</p>
                 </div>
             </div>
-            
+
             <div class="categories-grid">
                 <div class="category-card" onclick="window.location.href='/eventos.html?categoria=Fútbol'">
                     <i class="fa-solid fa-futbol category-icon"></i>
@@ -91,7 +96,7 @@
                 </div>
                 <a href="/eventos.html" class="event-action-btn">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
             </div>
-            
+
             <!-- Grid container for live loaded events cards -->
             <div class="events-grid" id="upcoming-events-grid">
                 <!-- Se carga dinámicamente mediante script.js -->
@@ -130,11 +135,14 @@
                 <i class="fa-solid fa-xmark modal-close"></i>
             </div>
             <div class="modal-body">
-                <div style="height: 220px; overflow:hidden; border-radius: var(--radius-md); margin-bottom: 1.5rem; background:#1e293b;">
-                    <img id="detail-banner" src="" alt="Banner Evento" style="width:100%; height:100%; object-fit:cover;">
+                <div
+                    style="height: 220px; overflow:hidden; border-radius: var(--radius-md); margin-bottom: 1.5rem; background:#1e293b;">
+                    <img id="detail-banner" src="" alt="Banner Evento"
+                        style="width:100%; height:100%; object-fit:cover;">
                 </div>
-                <h4 style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;" id="detail-categoria">Categoría</h4>
-                
+                <h4 style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem;"
+                    id="detail-categoria">Categoría</h4>
+
                 <div class="detail-meta-grid">
                     <div class="detail-meta-item">
                         <i class="fa-regular fa-calendar-days"></i>
@@ -157,7 +165,8 @@
                     <p class="detail-desc" id="detail-descripcion">Cargando descripción...</p>
                 </div>
 
-                <div style="border-top: 1px solid var(--border-color); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                <div
+                    style="border-top: 1px solid var(--border-color); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
                     <div class="organizer-info">
                         <div class="avatar-mini" id="detail-avatar-letter">O</div>
                         <div>
@@ -165,7 +174,7 @@
                             <span id="detail-organizador" style="font-weight:600; font-size:0.85rem;">Nombre</span>
                         </div>
                     </div>
-                    
+
                     <!-- Edit/Delete buttons if user is owner -->
                     <div id="detail-owner-actions" style="display:none; gap: 0.5rem;">
                         <!-- Inyectado dinámicamente -->
@@ -181,4 +190,5 @@
     <!-- Script JS -->
     <script src="/js/script.js"></script>
 </body>
+
 </html>
