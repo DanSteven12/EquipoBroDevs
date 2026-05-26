@@ -10,6 +10,8 @@
             padding: 0 1.5rem;
         }
 
+        /* HERO */
+
         .hero-section {
             position: relative;
             overflow: hidden;
@@ -67,14 +69,12 @@
             justify-content: center;
             font-size: 2.5rem;
             border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
         .hero-title h1 {
             margin: 0;
             font-size: 2.8rem;
             font-weight: 800;
-            letter-spacing: -1px;
         }
 
         .role-badge {
@@ -100,10 +100,13 @@
             opacity: 0.9;
         }
 
+        /* GRID */
+
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
             gap: 1.8rem;
+            margin-bottom: 2.5rem;
         }
 
         .dashboard-card {
@@ -153,8 +156,8 @@
 
         .card-top {
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
             margin-bottom: 1.8rem;
         }
 
@@ -166,32 +169,23 @@
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            transition: 0.35s ease;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        .dashboard-card:hover .card-icon {
-            transform: scale(1.08) rotate(5deg);
+            color: white;
         }
 
         .icon-blue {
             background: linear-gradient(135deg, #2563eb, #3b82f6);
-            color: white;
         }
 
         .icon-yellow {
             background: linear-gradient(135deg, #f59e0b, #fbbf24);
-            color: white;
         }
 
         .icon-green {
             background: linear-gradient(135deg, #16a34a, #22c55e);
-            color: white;
         }
 
         .icon-purple {
             background: linear-gradient(135deg, #7c3aed, #8b5cf6);
-            color: white;
         }
 
         .mini-icon {
@@ -203,28 +197,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
         }
 
         .dashboard-card h3 {
             margin: 0 0 1rem;
             font-size: 1.4rem;
-            color: #0f172a;
             font-weight: 800;
+            color: #0f172a;
         }
 
         .dashboard-card p {
             margin: 0;
             color: #64748b;
             line-height: 1.8;
-            font-size: 0.96rem;
         }
 
         .card-footer {
             margin-top: 2rem;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
         }
 
         .card-tag {
@@ -254,6 +246,136 @@
             transform: translateX(5px);
         }
 
+        /* ACTIVIDADES */
+
+        .activities-section {
+            background: white;
+            border-radius: 28px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .activities-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .activities-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .activities-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #0f172a, #334155);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .activities-title h2 {
+            margin: 0;
+            font-size: 1.7rem;
+            color: #0f172a;
+            font-weight: 800;
+        }
+
+        .activities-title p {
+            margin: 0.3rem 0 0;
+            color: #64748b;
+        }
+
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8fafc;
+            padding: 1.2rem 1.5rem;
+            border-radius: 20px;
+            transition: 0.3s;
+            border: 1px solid transparent;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .activity-item:hover {
+            transform: translateX(6px);
+            border-color: #cbd5e1;
+            background: white;
+        }
+
+        .activity-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .activity-badge {
+            width: 55px;
+            height: 55px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .badge-blue {
+            background: linear-gradient(135deg, #2563eb, #60a5fa);
+        }
+
+        .badge-red {
+            background: linear-gradient(135deg, #dc2626, #f87171);
+        }
+
+        .badge-green {
+            background: linear-gradient(135deg, #16a34a, #4ade80);
+        }
+
+        .badge-purple {
+            background: linear-gradient(135deg, #7c3aed, #a78bfa);
+        }
+
+        .activity-info h4 {
+            margin: 0;
+            font-size: 1rem;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .activity-info p {
+            margin: 0.3rem 0 0;
+            color: #64748b;
+            font-size: 0.92rem;
+        }
+
+        .activity-date {
+            background: white;
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #334155;
+            border: 1px solid #e2e8f0;
+        }
+
         @media (max-width: 768px) {
             .hero-section {
                 padding: 2.5rem;
@@ -272,6 +394,11 @@
                 height: 75px;
                 font-size: 2rem;
             }
+
+            .activity-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 @endsection
@@ -279,6 +406,7 @@
 @section('content')
     <div class="teacher-dashboard">
 
+        {{-- HERO --}}
         <div class="hero-section">
             <div class="hero-content">
 
@@ -300,13 +428,14 @@
                 </div>
 
                 <p class="hero-description">
-                    Administre sus cursos, materiales académicos, evaluaciones y asistencia desde
-                    un entorno moderno, organizado y eficiente.
+                    Administre cursos, materiales académicos, evaluaciones y asistencia desde un entorno moderno,
+                    organizado y eficiente.
                 </p>
 
             </div>
         </div>
 
+        {{-- CARDS --}}
         <div class="dashboard-grid">
 
             <a href="#" class="dashboard-card card-blue">
@@ -420,6 +549,116 @@
                 </div>
 
             </a>
+
+        </div>
+
+        {{-- ACTIVIDADES --}}
+        <div class="activities-section">
+
+            <div class="activities-header">
+
+                <div class="activities-title">
+
+                    <div class="activities-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+
+                    <div>
+                        <h2>Próximas Actividades</h2>
+                        <p>Eventos y tareas programadas para los próximos días</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="activity-list">
+
+                <div class="activity-item">
+
+                    <div class="activity-left">
+
+                        <div class="activity-badge badge-blue">
+                            <i class="fas fa-code"></i>
+                        </div>
+
+                        <div class="activity-info">
+                            <h4>Clase de Programación Web</h4>
+                            <p>Grupo 9A • Laboratorio 2</p>
+                        </div>
+
+                    </div>
+
+                    <div class="activity-date">
+                        <i class="fas fa-clock"></i> 28 Mayo • 08:00 AM
+                    </div>
+
+                </div>
+
+                <div class="activity-item">
+
+                    <div class="activity-left">
+
+                        <div class="activity-badge badge-red">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+
+                        <div class="activity-info">
+                            <h4>Entrega de Proyecto Final</h4>
+                            <p>Ingeniería de Software</p>
+                        </div>
+
+                    </div>
+
+                    <div class="activity-date">
+                        <i class="fas fa-calendar"></i> 30 Mayo
+                    </div>
+
+                </div>
+
+                <div class="activity-item">
+
+                    <div class="activity-left">
+
+                        <div class="activity-badge badge-green">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+
+                        <div class="activity-info">
+                            <h4>Revisión de Tareas</h4>
+                            <p>Asignación de Base de Datos</p>
+                        </div>
+
+                    </div>
+
+                    <div class="activity-date">
+                        <i class="fas fa-check-circle"></i> Pendiente
+                    </div>
+
+                </div>
+
+                <div class="activity-item">
+
+                    <div class="activity-left">
+
+                        <div class="activity-badge badge-purple">
+                            <i class="fas fa-users"></i>
+                        </div>
+
+                        <div class="activity-info">
+                            <h4>Reunión Académica</h4>
+                            <p>Coordinación de Carrera</p>
+                        </div>
+
+                    </div>
+
+                    <div class="activity-date">
+                        <i class="fas fa-clock"></i> 02 Junio • 12:00 PM
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
