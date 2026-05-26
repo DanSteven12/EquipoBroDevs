@@ -27,8 +27,9 @@
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
             font-size: 1.25rem;
+            font-weight: 700;
         }
 
         .form-group {
@@ -66,6 +67,10 @@
             font-weight: 700;
             cursor: pointer;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         .submit-btn:hover {
@@ -98,13 +103,19 @@
             color: #2d3748;
         }
 
+        /* Badge formal refinado similar a los colores previos */
         .status-badge {
-            background: #fff8e1;
-            color: #ffa000;
-            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #16a34a;
+            padding: 0.35rem 0.85rem;
             border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
         }
 
         .error-msg {
@@ -120,6 +131,9 @@
             border-radius: 8px;
             margin-bottom: 1.5rem;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .search-container {
@@ -159,6 +173,9 @@
             font-weight: 600;
             cursor: pointer;
             transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .filter-btn:hover {
@@ -201,13 +218,12 @@
 
 @section('content')
     <div class="admin-container">
-        <!-- Formulario de Registro de Docentes -->
         <div class="form-section">
-            <h2><i class="fas fa-user-plus"></i> Registrar Docente</h2>
+            <h2><i class="fa-solid fa-user-plus"></i> Registrar Docente</h2>
 
             @if (session('status'))
                 <div class="alert-success">
-                    <i class="fas fa-check-circle"></i> {{ session('status') }}
+                    <i class="fa-solid fa-circle-check"></i> {{ session('status') }}
                 </div>
             @endif
 
@@ -238,26 +254,23 @@
                 </div>
 
                 <button type="submit" class="submit-btn">
-                    <i class="fas fa-save"></i> Guardar Docente
+                    <i class="fa-solid fa-floppy-disk"></i> Guardar Docente
                 </button>
             </form>
         </div>
 
-        <!-- Lista de Usuarios -->
         <div class="list-section">
             <div class="table-header-flex">
                 <h2>
-                    <i
-                        class="fas {{ $rol_id == 0 ? 'fa-user-shield' : ($rol_id == 1 ? 'fa-chalkboard-teacher' : 'fa-user-graduate') }}"></i>
+                    <i class="fa-solid {{ $rol_id == 0 ? 'fa-user-shield' : ($rol_id == 1 ? 'fa-user-tie' : 'fa-users-rectangle') }}"></i>
                     {{ $rol_id == 0 ? 'Administradores' : ($rol_id == 1 ? 'Docentes' : 'Estudiantes') }} Registrados
                 </h2>
             </div>
 
-            <!-- Barra de Filtros -->
             <form action="{{ route('admin.usuarios') }}" method="GET" id="search-form">
                 <div class="search-container">
                     <div class="search-input-group">
-                        <i class="fas fa-search"></i>
+                        <i class="fa-solid fa-magnifying-glass"></i>
                         <input type="text" name="search" id="search-input" value="{{ request('search') }}"
                             placeholder="Buscar por nombre o correo..." autocomplete="off">
                     </div>
@@ -269,12 +282,12 @@
                     </select>
 
                     <button type="submit" class="filter-btn">
-                        <i class="fas fa-filter"></i> Filtrar
+                        <i class="fa-solid fa-sliders"></i> Filtrar
                     </button>
                     @if(request('search') || request('role'))
                         <a href="{{ route('admin.usuarios') }}" class="filter-btn"
                             style="background: #a0aec0; text-decoration: none;">
-                            <i class="fas fa-times"></i> Limpiar
+                            <i class="fa-solid fa-xmark"></i> Limpiar
                         </a>
                     @endif
                 </div>
@@ -296,7 +309,11 @@
                                 <td><strong>{{ $usuario->nombre }}</strong></td>
                                 <td>{{ $usuario->email }}</td>
                                 <td>{{ $usuario->created_at->format('d/m/Y') }}</td>
-                                <td><span class="status-badge">Activo</span></td>
+                                <td>
+                                    <span class="status-badge">
+                                        <i class="fa-solid fa-circle" style="font-size: 0.5rem; vertical-align: middle;"></i> Activo
+                                    </span>
+                                </td>
                             </tr>
                         @empty
                             <tr>
@@ -314,7 +331,7 @@
 
 @section('scripts')
     <script>
-        // Búsqueda automática con debounce (500ms)
+        // Búsqueda automática con debounce (800ms)
         let typingTimer;
         const searchInput = document.getElementById('search-input');
         const searchForm = document.getElementById('search-form');
