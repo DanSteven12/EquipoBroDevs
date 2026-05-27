@@ -101,7 +101,7 @@ async function apiFetch(endpoint, options = {}) {
             deleteCookie('token');
             deleteCookie('user');
             if (window.location.pathname.includes('perfil.html')) {
-                window.location.href = '/login.html?session=expired';
+                window.location.href = 'login.html?session=expired';
             }
         }
         
@@ -124,10 +124,10 @@ function updateNavbar() {
     if (token) {
         // Authenticated user state
         navMenu.innerHTML = `
-            <li class="nav-item ${isActive('index.html')}"><a href="/index.html"><i class="fa-solid fa-house mb-1"></i> Inicio</a></li>
-            <li class="nav-item ${isActive('eventos.html')}"><a href="/eventos.html"><i class="fa-solid fa-calendar-days mb-1"></i> Eventos</a></li>
-            <li class="nav-item ${isActive('contacto.html')}"><a href="/contacto.html"><i class="fa-solid fa-paper-plane mb-1"></i> Contacto</a></li>
-            <li class="nav-item ${isActive('perfil.html')}"><a href="/perfil.html"><i class="fa-solid fa-user mb-1"></i> Mi Perfil</a></li>
+            <li class="nav-item ${isActive('index.html')}"><a href="index.html"><i class="fa-solid fa-house mb-1"></i> Inicio</a></li>
+            <li class="nav-item ${isActive('eventos.html')}"><a href="eventos.html"><i class="fa-solid fa-calendar-days mb-1"></i> Eventos</a></li>
+            <li class="nav-item ${isActive('contacto.html')}"><a href="contacto.html"><i class="fa-solid fa-paper-plane mb-1"></i> Contacto</a></li>
+            <li class="nav-item ${isActive('perfil.html')}"><a href="perfil.html"><i class="fa-solid fa-user mb-1"></i> Mi Perfil</a></li>
         `;
         authButtons.innerHTML = `
             <button id="btn-logout" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Salir</button>
@@ -138,13 +138,13 @@ function updateNavbar() {
     } else {
         // Guest user state
         navMenu.innerHTML = `
-            <li class="nav-item ${isActive('index.html')}"><a href="/index.html"><i class="fa-solid fa-house mb-1"></i> Inicio</a></li>
-            <li class="nav-item ${isActive('eventos.html')}"><a href="/eventos.html"><i class="fa-solid fa-calendar-days mb-1"></i> Eventos</a></li>
-            <li class="nav-item ${isActive('contacto.html')}"><a href="/contacto.html"><i class="fa-solid fa-paper-plane mb-1"></i> Contacto</a></li>
+            <li class="nav-item ${isActive('index.html')}"><a href="index.html"><i class="fa-solid fa-house mb-1"></i> Inicio</a></li>
+            <li class="nav-item ${isActive('eventos.html')}"><a href="eventos.html"><i class="fa-solid fa-calendar-days mb-1"></i> Eventos</a></li>
+            <li class="nav-item ${isActive('contacto.html')}"><a href="contacto.html"><i class="fa-solid fa-paper-plane mb-1"></i> Contacto</a></li>
         `;
         authButtons.innerHTML = `
-            <a href="/login.html" class="btn btn-outline"><i class="fa-solid fa-right-to-bracket"></i> Ingresar</a>
-            <a href="/registro.html" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Registrarse</a>
+            <a href="login.html" class="btn btn-outline"><i class="fa-solid fa-right-to-bracket"></i> Ingresar</a>
+            <a href="registro.html" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Registrarse</a>
         `;
     }
 }
@@ -165,7 +165,7 @@ async function handleLogout() {
     deleteCookie('user');
     showToast("Sesión cerrada correctamente.", "success");
     setTimeout(() => {
-        window.location.href = '/index.html';
+        window.location.href = 'index.html';
     }, 800);
 }
 
@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initLoginPage() {
     const token = getCookie('token');
     if (token) {
-        window.location.href = '/perfil.html';
+        window.location.href = 'perfil.html';
         return;
     }
 
@@ -282,7 +282,7 @@ function initLoginPage() {
                 
                 showToast("¡Inicio de sesión exitoso! Redirigiendo...", "success");
                 setTimeout(() => {
-                    window.location.href = '/perfil.html';
+                    window.location.href = 'perfil.html';
                 }, 1000);
             } else {
                 showToast(data.mensaje || "Credenciales incorrectas.", "error");
@@ -299,7 +299,7 @@ function initLoginPage() {
 function initRegisterPage() {
     const token = getCookie('token');
     if (token) {
-        window.location.href = '/perfil.html';
+        window.location.href = 'perfil.html';
         return;
     }
 
@@ -341,7 +341,7 @@ function initRegisterPage() {
             if (response.ok) {
                 showToast("¡Registro completado con éxito! Iniciando redirección...", "success");
                 setTimeout(() => {
-                    window.location.href = '/login.html';
+                    window.location.href = 'login.html';
                 }, 1500);
             } else {
                 if (data.errores) {
@@ -363,7 +363,7 @@ function initRegisterPage() {
 async function initProfilePage() {
     const token = getCookie('token');
     if (!token) {
-        window.location.href = '/login.html?auth=required';
+        window.location.href = 'login.html?auth=required';
         return;
     }
 
@@ -380,7 +380,7 @@ async function initProfilePage() {
     } catch(err) {
         showToast("Error al obtener los datos de perfil.", "error");
         deleteCookie('token');
-        window.location.href = '/login.html?session=expired';
+        window.location.href = 'login.html?session=expired';
         return;
     }
 
@@ -472,7 +472,7 @@ async function loadUserCreatedEvents(userId) {
                         <i class="fa-solid fa-calendar-xmark fa-3x mb-3" style="color: var(--text-muted)"></i>
                         <h3>Aún no has creado eventos</h3>
                         <p class="text-secondary mt-2">¿Tienes una actividad planeada? Crea tu primer evento deportivo.</p>
-                        <a href="/eventos.html" class="btn btn-primary mt-4"><i class="fa-solid fa-plus"></i> Crear mi primer Evento</a>
+                        <a href="eventos.html" class="btn btn-primary mt-4"><i class="fa-solid fa-plus"></i> Crear mi primer Evento</a>
                     </div>
                 `;
                 return;
@@ -730,7 +730,7 @@ async function initHomePage() {
                             <i class="fa-regular fa-calendar-days fa-3x mb-3" style="color: var(--text-muted)"></i>
                             <h3>No hay eventos activos programados</h3>
                             <p class="text-secondary mt-2">¡Sé el primero en programar una actividad deportiva!</p>
-                            <a href="/eventos.html" class="btn btn-primary mt-4"><i class="fa-solid fa-plus"></i> Crear Evento</a>
+                            <a href="eventos.html" class="btn btn-primary mt-4"><i class="fa-solid fa-plus"></i> Crear Evento</a>
                         </div>
                     `;
                     return;
@@ -771,7 +771,7 @@ function renderEventCardHtml(event, isProfile = false) {
         <div class="event-card" data-id="${event.id}">
             <div class="event-banner">
                 <span class="event-badge"><i class="fa-solid ${catIcon}"></i> ${event.categoria}</span>
-                <img src="${event.imagen || '/img/recreativo.jpg'}" alt="${event.titulo}" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 180%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%231e293b%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Outfit%22 font-size=%2222%22 fill=%22%233b82f6%22 font-weight=%22bold%22>${event.categoria}</text></svg>'">
+                <img src="${event.imagen || 'img/recreativo.jpg'}" alt="${event.titulo}" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 180%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%231e293b%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Outfit%22 font-size=%2222%22 fill=%22%233b82f6%22 font-weight=%22bold%22>${event.categoria}</text></svg>'">
             </div>
             <div class="event-body">
                 <h3 class="event-title">${event.titulo}</h3>
@@ -845,7 +845,7 @@ function showEventDetails(event) {
     // Banner image setup
     const banner = document.getElementById('detail-banner');
     if (banner) {
-        banner.src = event.imagen || '/img/recreativo.jpg';
+        banner.src = event.imagen || 'img/recreativo.jpg';
         banner.onerror = function() {
             this.src = `data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 250%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%231e293b%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Outfit%22 font-size=%2228%22 fill=%22%233b82f6%22 font-weight=%22bold%22>${event.categoria}</text></svg>`;
         };

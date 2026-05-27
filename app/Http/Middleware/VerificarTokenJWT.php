@@ -23,10 +23,11 @@ class VerificarTokenJWT
 
             if ($token) {
                 \Log::info("JWT Middleware: Token found.");
-                if (!$request->header('Authorization')) {
-                    \PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth::setToken($token);
+                if (str_starts_with($token, 'Bearer ')) {
+                    $token = str_replace('Bearer ', '', $token);
                 }
-                $user = \PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth::authenticate();
+                \PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth::setToken($token);
+                $user = \PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth::toUser();
                 \Log::info("JWT Middleware: User authenticated: " . ($user ? $user->email : 'FAILED'));
             } else {
                 \Log::warning("JWT Middleware: No token provided for " . $request->path());

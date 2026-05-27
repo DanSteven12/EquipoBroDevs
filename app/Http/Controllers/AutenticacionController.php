@@ -188,6 +188,6 @@ class AutenticacionController extends Controller
             'expires_in' => $ttl * 60,
             'user' => $usuario
         ])
-        ->cookie('token', $token, $ttl, '/', null, false, true); // Guarda en cookie HttpOnly
+        ->cookie('token', $token, $ttl, '/', null, false, false); // httpOnly = false
     }
 }
